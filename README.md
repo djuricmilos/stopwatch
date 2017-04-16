@@ -17,7 +17,7 @@ composer require djuricmilos/stopwatch
 ## Usage
 
 ``` php
-$stopwatch = new Stopwatch\Stopwatch();
+$stopwatch = Stopwatch::createNew();
 $stopwatch->start();
 $stopwatch->getElapsedMilliseconds();
 $stopwatch->stop();
