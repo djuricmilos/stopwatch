@@ -9,21 +9,22 @@
  * located at the package root folder.
  */
 
-namespace Stopwatch\Tests;
+namespace Laganica\Stopwatch\Tests;
 
-use Stopwatch\Stopwatch;
+use Laganica\Stopwatch\Stopwatch;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class StopwatchTest
  *
  * @package Stopwatch\Tests
  */
-class StopwatchTest extends \PHPUnit_Framework_TestCase
+class StopwatchTest extends TestCase
 {
     /**
      * @return Stopwatch
      */
-    public function testNew()
+    public function testNew(): Stopwatch
     {
         $stopwatch = Stopwatch::createNew();
 
@@ -35,10 +36,12 @@ class StopwatchTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @param Stopwatch $stopwatch
-     * @return Stopwatch
+     *
      * @depends testNew
+     *
+     * @return Stopwatch
      */
-    public function testStart(Stopwatch $stopwatch)
+    public function testStart(Stopwatch $stopwatch): Stopwatch
     {
         $stopwatch->start();
 
@@ -50,10 +53,12 @@ class StopwatchTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @param Stopwatch $stopwatch
-     * @return Stopwatch
+     *
      * @depends testStart
+     *
+     * @return Stopwatch
      */
-    public function testStop(Stopwatch $stopwatch)
+    public function testStop(Stopwatch $stopwatch): Stopwatch
     {
         $stopwatch->stop();
 
@@ -65,9 +70,12 @@ class StopwatchTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @param Stopwatch $stopwatch
+     *
      * @depends testStop
+     *
+     * @return void
      */
-    public function testResume(Stopwatch $stopwatch)
+    public function testResume(Stopwatch $stopwatch): void
     {
         $stopwatch->start();
 
@@ -77,9 +85,12 @@ class StopwatchTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @param Stopwatch $stopwatch
+     *
      * @depends testStart
+     *
+     * @return void
      */
-    public function testReset(Stopwatch $stopwatch)
+    public function testReset(Stopwatch $stopwatch): void
     {
         $stopwatch->reset();
 
@@ -89,9 +100,12 @@ class StopwatchTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @param Stopwatch $stopwatch
+     *
      * @depends testStart
+     *
+     * @return void
      */
-    public function testRestart(Stopwatch $stopwatch)
+    public function testRestart(Stopwatch $stopwatch): void
     {
         $stopwatch->restart();
 
@@ -99,7 +113,10 @@ class StopwatchTest extends \PHPUnit_Framework_TestCase
         self::assertNotSame(0.0, $stopwatch->getElapsed());
     }
 
-    public function testElapsed()
+    /**
+     * @return void
+     */
+    public function testElapsed(): void
     {
         $stopwatch = Stopwatch::createNew();
         $stopwatch->start();
@@ -112,7 +129,10 @@ class StopwatchTest extends \PHPUnit_Framework_TestCase
         self::assertLessThanOrEqual(3, $stopwatch->getElapsed());
     }
 
-    public function testElapsedSeconds()
+    /**
+     * @return void
+     */
+    public function testElapsedSeconds(): void
     {
         $stopwatch = Stopwatch::createNew();
         $stopwatch->start();
@@ -129,7 +149,10 @@ class StopwatchTest extends \PHPUnit_Framework_TestCase
         self::assertLessThanOrEqual(3, $stopwatch->getElapsedSeconds());
     }
 
-    public function testElapsedMilliseconds()
+    /**
+     * @return void
+     */
+    public function testElapsedMilliseconds(): void
     {
         $stopwatch = Stopwatch::createNew();
         $stopwatch->start();
@@ -142,7 +165,10 @@ class StopwatchTest extends \PHPUnit_Framework_TestCase
         self::assertLessThanOrEqual(2100, $stopwatch->getElapsedMilliseconds());
     }
 
-    public function testElapsedMicroseconds()
+    /**
+     * @return void
+     */
+    public function testElapsedMicroseconds(): void
     {
         $stopwatch = Stopwatch::createNew();
         $stopwatch->start();

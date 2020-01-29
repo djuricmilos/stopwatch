@@ -17,6 +17,8 @@ composer require djuricmilos/stopwatch
 ## Usage
 
 ``` php
+use Laganica\Stopwatch\Stopwatch;
+
 $stopwatch = Stopwatch::createNew();
 $stopwatch->start();
 $stopwatch->getElapsedMilliseconds();

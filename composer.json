@@ -15,24 +15,24 @@
         }
     ],
     "require": {
-        "php": "^7.0"
+        "php": "^7.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.0"
+        "phpunit/phpunit": "^8.0"
     },
     "autoload": {
         "psr-4": {
-            "Stopwatch\\": "src/"
+            "Laganica\\Stopwatch\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Stopwatch\\Tests\\": "tests/"
+            "Laganica\\Stopwatch\\Tests\\": "tests/"
         }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "2.0-dev"
         }
     }
 }

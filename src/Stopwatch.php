@@ -9,12 +9,12 @@
  * located at the package root folder.
  */
 
-namespace Stopwatch;
+namespace Laganica\Stopwatch;
 
 /**
  * Class Stopwatch
  *
- * @package Stopwatch
+ * @package Laganica\Stopwatch
  */
 final class Stopwatch
 {
@@ -41,15 +41,17 @@ final class Stopwatch
     /**
      * @return Stopwatch
      */
-    public static function createNew() : self
+    public static function createNew(): self
     {
         return new self();
     }
 
     /**
      * Starts or resumes measurement.
+     *
+     * @return void
      */
-    public function start()
+    public function start(): void
     {
         if ($this->time !== 0.0) {
             $this->time = microtime(true) - $this->elapsed + $this->time;
@@ -62,8 +64,10 @@ final class Stopwatch
 
     /**
      * Stops measurement.
+     *
+     * @return void
      */
-    public function stop()
+    public function stop(): void
     {
         $this->storeElapsed();
         $this->isRunning = false;
@@ -71,8 +75,10 @@ final class Stopwatch
 
     /**
      * Stops measurement and starts from the beginning.
+     *
+     * @return void
      */
-    public function restart()
+    public function restart(): void
     {
         $this->init();
         $this->start();
@@ -80,8 +86,10 @@ final class Stopwatch
 
     /**
      * Stops measurement and resets elapsed time.
+     *
+     * @return void
      */
-    public function reset()
+    public function reset(): void
     {
         $this->init();
     }
@@ -89,7 +97,7 @@ final class Stopwatch
     /**
      * @return float
      */
-    public function getElapsed() : float
+    public function getElapsed(): float
     {
         $this->storeElapsed();
 
@@ -99,7 +107,7 @@ final class Stopwatch
     /**
      * @return int
      */
-    public function getElapsedSeconds() : int
+    public function getElapsedSeconds(): int
     {
         return (int) $this->getElapsed();
     }
@@ -107,7 +115,7 @@ final class Stopwatch
     /**
      * @return int
      */
-    public function getElapsedMilliseconds() : int
+    public function getElapsedMilliseconds(): int
     {
         return (int) ($this->getElapsed() * 1000);
     }
@@ -115,24 +123,27 @@ final class Stopwatch
     /**
      * @return int
      */
-    public function getElapsedMicroseconds() : int
+    public function getElapsedMicroseconds(): int
     {
         return (int) ($this->getElapsed() * 1000000);
     }
 
     /**
      * Returns true if stopwatch is running, otherwise false.
+     *
      * @return bool
      */
-    public function isRunning() : bool
+    public function isRunning(): bool
     {
         return $this->isRunning;
     }
 
     /**
      * Initializes stopwatch internals.
+     *
+     * @return void
      */
-    private function init()
+    private function init(): void
     {
         $this->time = 0.0;
         $this->elapsed = 0.0;
@@ -141,8 +152,10 @@ final class Stopwatch
 
     /**
      * Stores elapsed time.
+     *
+     * @return void
      */
-    private function storeElapsed()
+    private function storeElapsed(): void
     {
         if ($this->isRunning === false) {
             return;
