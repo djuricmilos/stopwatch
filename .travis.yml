@@ -11,7 +11,7 @@ matrix:
     - php: 7
       env:
         - EXECUTE_TEST_COVERALLS=true
-    - php: 7.1
+    - php: 7.3
 
 install:
   - travis_retry composer install --no-interaction
