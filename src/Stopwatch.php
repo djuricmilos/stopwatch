@@ -53,12 +53,7 @@ final class Stopwatch
      */
     public function start(): void
     {
-        if ($this->time !== 0.0) {
-            $this->time = microtime(true) - $this->elapsed + $this->time;
-        } else {
-            $this->time = microtime(true);
-        }
-
+        $this->time = microtime(true) - $this->getElapsed();
         $this->isRunning = true;
     }
 
