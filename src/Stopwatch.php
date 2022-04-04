@@ -33,6 +33,9 @@ final class Stopwatch
      */
     private $isRunning;
 
+    /**
+     * Constuctor
+     */
     private function __construct()
     {
         $this->init();
